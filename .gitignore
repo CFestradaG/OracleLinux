@@ -1,0 +1,8 @@
+# Ignore editor and OS files
+.DS_Store
+
+# Ignore Docker data directories and volumes
+oracle-data/
+
+# Ignore logs
+*.log
