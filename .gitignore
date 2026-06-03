@@ -6,3 +6,9 @@ oracle-data/
 
 # Ignore logs
 *.log
+logs/
+
+# Ignore local secrets and generated backup artifacts
+.env
+backups/
+wallet/

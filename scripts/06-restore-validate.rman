@@ -1,0 +1,9 @@
+# Validación de restauración sin sobrescribir la base.
+# Esto demuestra que RMAN puede leer los backupsets y que son recuperables.
+
+CONNECT TARGET /
+
+RESTORE DATABASE VALIDATE;
+RESTORE ARCHIVELOG ALL VALIDATE;
+
+LIST BACKUP SUMMARY;

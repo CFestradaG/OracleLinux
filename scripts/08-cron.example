@@ -1,0 +1,4 @@
+# Ejemplo de automatización Linux/macOS con cron.
+# Ejecuta backup diario a las 23:00 y deja logs en el proyecto.
+
+0 23 * * * cd /Volumes/Respaldo1/OracleLinux && /bin/bash scripts/05-run-backup.sh >> logs/cron_backup.log 2>&1

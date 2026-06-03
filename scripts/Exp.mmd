@@ -1,0 +1,19 @@
+---
+references:
+  - "File: /scripts/02-configure-archivelog-fra.sql"
+generationTime: 2026-06-03T02:03:22.236Z
+---
+flowchart TD
+    A["Start Script"] --> B["Set Error Handling<br/>WHENEVER SQLERROR EXIT"]
+    B --> C["Configure FRA Size<br/>db_recovery_file_dest_size = 10G"]
+    C --> D["Configure FRA Path<br/>db_recovery_file_dest = /opt/oracle/oradata"]
+    D --> E["Execute Commands"]
+    E --> F["Shutdown Database<br/>SHUTDOWN IMMEDIATE"]
+    F --> G["Mount Database<br/>STARTUP MOUNT"]
+    G --> H{Enable ARCHIVELOG}
+    H -->|Success| I["Enable Archive Logging<br/>ALTER DATABASE ARCHIVELOG"]
+    I --> J["Open Database<br/>ALTER DATABASE OPEN"]
+    J --> K["Verify Configuration<br/>ARCHIVE LOG LIST"]
+    K --> L["Exit Script"]
+    H -->|Error| M["Error Exit<br/>SQL.SQLCODE"]
+    M --> L
