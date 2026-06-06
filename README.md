@@ -110,6 +110,8 @@ Editar `.env` si se necesitan otros valores:
 ```bash
 CONTAINER_NAME=oracle-xe-backup-lab
 IMAGE_NAME=cestrda/oracle-xe-custom:latest
+HOST_PORT=1522
+CONTAINER_PORT=1521
 ORACLE_PASSWORD=Oracle123456
 TDE_WALLET_PASSWORD=Wallet123456
 ```
@@ -140,6 +142,12 @@ Conectarse como administrador:
 
 ```bash
 docker exec -it oracle-xe-backup-lab sqlplus sys/Oracle123456@localhost:1521/XE as sysdba
+```
+
+Si te conectas desde tu Mac usando un cliente externo, usa el puerto definido en `.env`:
+
+```text
+localhost:1522/XE
 ```
 
 Consultas de validación:
